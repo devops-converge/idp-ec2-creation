@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: pwang
-  title: Backstage automation
+  title: EC2 Creation
   description: creating ec2 using backstage and terraform.
 spec:
   owner: guest
