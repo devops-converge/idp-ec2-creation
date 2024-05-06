@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: create-s3-bucket
-  title: Create an application running on s3 
-  description: Create an application running on s3
+  title: Create a new application running on s3 
+  description: Create a new application running on s3
   tags: ['recommended']
 spec:
   owner: guests
