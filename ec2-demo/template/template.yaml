@@ -27,6 +27,7 @@ spec:
           title:  AWS Region
           type: string
           description: Name of the region where you want to create your s3 bucket eg:- us-east-1, ap-south-1 etc.
+          default: us-east-1
 
         action:
           title: action
