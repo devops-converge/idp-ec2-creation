@@ -4,7 +4,7 @@ metadata:
   name: ${{ values.name | dump }}
   annotations:
     #github.com/project-slug: sagar0419/aws-ec2 # Change the value to your github repo which contains terraform code.
-    github.com/project-slug: devops-converge/terraform1
+    github.com/project-slug: devops-converge/idp-terraform
     backstage.io/techdocs-ref: dir:.
   title: 'IA for Instance Automation' # you can give any title
   description: An example of a Instance Creation. # Change Description accordingly
