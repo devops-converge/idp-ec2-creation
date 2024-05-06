@@ -2,8 +2,8 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: create-s3-bucket
-  title: Create s3 bucket
-  description: Create a s3 bucket to deploy your application
+  title: Create an application running on s3 
+  description: Create an application running on s3
   tags: ['recommended']
 spec:
   owner: guests
@@ -36,6 +36,7 @@ spec:
           enum:
             - apply
             - destroy
+          default: apply   
 
     - title: Choose a Repository Location
       required:
