@@ -79,18 +79,18 @@ spec:
         # defaultBranch: master
 
 # Triggering CI-CD to create resource in our case github action. 
-    # - id: github-action
-    #   name: Starting GitHub action
-    #   action: github:actions:dispatch
-    #   input:
-    #     workflowId:  instance.yml # ID of GitHub action WorkFlow
-    #     repoUrl: 'github.com?repo=HHA-Terraform-Sql-Mod&owner=devops-converge'
-    #     branchOrTagName: 'master'
-    #     workflowInputs:
-    #       instanceName: ${{ parameters.InstanceName }}
-    #       awsRegion: ${{ parameters.Region }}
-    #       instanceType: ${{ parameters.InstanceType }}
-    #       action: ${{ parameters.action }}
+    - id: github-action
+      name: Starting GitHub action
+      action: github:actions:dispatch
+      input:
+        workflowId:  terraform.yaml # ID of GitHub action WorkFlow
+        repoUrl: 'github.com?repo=idp-terraform&owner=devops-converge'
+        branchOrTagName: 'main'
+        workflowInputs:
+          instanceName: ${{ parameters.InstanceName }}
+          awsRegion: ${{ parameters.Region }}
+          instanceType: ${{ parameters.InstanceType }}
+          action: ${{ parameters.action }}
 
 # Registering new component in the catalog of backstage.
     - id: register
