@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: create-ec2-instance
-  title: Create an EC2 Instance
-  description: Create an Instance to deploy your application
+  name: create-s3-bucket
+  title: Create s3 bucket
+  description: Create a s3 bucket to deploy your application
   tags: ['recommended']
 spec:
   owner: guests
@@ -11,14 +11,14 @@ spec:
   parameters:
     - title: EC2 Instance Creation
       required:
-         - InstanceName
+         - S3 bucket name
          - Region
-         - InstanceType    
+         
       properties:
         InstanceName:
-          title: Instance Name.
+          title: S3 bucket name.
           type: string
-          description: Name of the Instnace to be created.
+          description: Name of the S3 to be created.
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -26,17 +26,8 @@ spec:
         Region:
           title:  AWS Region
           type: string
-          description: Name of the region where you want to create your create-ec2-instance eg:- us-east-1, ap-south-1 etc.
+          description: Name of the region where you want to create your s3 bucket eg:- us-east-1, ap-south-1 etc.
 
-        InstanceType:
-          title: Type of Instance.
-          type: string
-          description: Type of the instance that you want to deploy, for eg:- t2.medium, t3.medium etc.
-          enum:
-            - t2.medium
-            - t2.small
-            - t2.micro
-            - t3.medium
         action:
           title: action
           type: string
@@ -86,11 +77,10 @@ spec:
         workflowId:  terraform.yaml # ID of GitHub action WorkFlow
         repoUrl: 'github.com?repo=idp-terraform&owner=devops-converge'
         branchOrTagName: 'main'
-        # workflowInputs:
-        #   instanceName: ${{ parameters.InstanceName }}
-        #   awsRegion: ${{ parameters.Region }}
-        #   instanceType: ${{ parameters.InstanceType }}
-        #   action: ${{ parameters.action }}
+        workflowInputs:
+          instanceName: ${{ parameters.InstanceName }}
+          awsRegion: ${{ parameters.Region }}
+          action: ${{ parameters.action }}
 
 # Registering new component in the catalog of backstage.
     - id: register
