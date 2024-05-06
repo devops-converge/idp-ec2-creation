@@ -9,13 +9,13 @@ spec:
   owner: guests
   type: service
   parameters:
-    - title: EC2 Instance Creation
+    - title: S3 bucket creation
       required:
-         - S3 bucket name
+         - S3Name
          - Region
          
       properties:
-        InstanceName:
+        S3Name:
           title: S3 bucket name.
           type: string
           description: Name of the S3 to be created.
@@ -78,7 +78,7 @@ spec:
         repoUrl: 'github.com?repo=idp-terraform&owner=devops-converge'
         branchOrTagName: 'main'
         workflowInputs:
-          instanceName: ${{ parameters.InstanceName }}
+          S3Name: ${{ parameters.S3Name }}
           awsRegion: ${{ parameters.Region }}
           action: ${{ parameters.action }}
 
