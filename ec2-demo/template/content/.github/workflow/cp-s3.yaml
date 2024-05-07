@@ -2,12 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ '**' ]  # This listens to pushes on all branches
   pull_request:
-    branches: [ main ]
-
+    branches: [ '**' ]  # This listens to PRs targeting all branches
+    
 jobs:
-  build:
+  build:https://github.com/devops-converge/idp-ec2-creation/settings
     runs-on: ubuntu-latest
 
     steps:
