@@ -5,11 +5,21 @@ on:
     branches:  [ '**' ]  # This listens to pushes on all branches
     
 jobs:
+  build: 
+     runs-on: ubuntu-latest
+
+     steps:
+     - uses: actions/checkout@v2
+     - name: Set up Node.js
+       uses: actions/setup-node@v2
+       with:
+        node-version: '14'
+
+    - name: Build
+      run: echo "npm run build"  
+     
   deploy:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
 
     # - name: Set up AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
