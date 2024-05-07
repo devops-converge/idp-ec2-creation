@@ -7,16 +7,12 @@ on:
 jobs:
   build: 
      runs-on: ubuntu-latest
-
      steps:
-     - uses: actions/checkout@v2
-     - name: Set up Node.js
-       uses: actions/setup-node@v2
-       with:
-        node-version: '14'
+     - name: Checkout
+       uses: actions/checkout@v4
 
-    - name: Build
-      run: echo "npm run build"  
+     - name: Build
+       run: echo "npm run build"  
      
   deploy:
     runs-on: ubuntu-latest
